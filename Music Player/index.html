@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Background Gradient Animation -->
+        <div class="gradient-bg"></div>
+
+        <!-- Music Player Card -->
+        <div class="music-player">
+            <!-- Now Playing Info -->
+            <div class="now-playing">
+                <div class="album-art-container">
+                    <img id="albumArt" class="album-art" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23667eea' width='100' height='100'/%3E%3Ccircle cx='50' cy='50' r='15' fill='%23fff' opacity='0.3'/%3E%3C/svg%3E" alt="Album Art">
+                    <div class="playing-indicator" id="playingIndicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                
+                <div class="track-info">
+                    <h2 id="trackTitle" class="track-title">No Song Selected</h2>
+                    <p id="trackArtist" class="track-artist">Select a song from playlist</p>
+                    <div class="track-time">
+                        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-handle" id="progressHandle"></div>
+                </div>
+            </div>
+
+            <!-- Main Controls -->
+            <div class="controls">
+                <button class="control-btn" id="prevBtn" title="Previous">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+
+                <button class="control-btn play-btn" id="playBtn" title="Play/Pause">
+                    <i class="fas fa-play"></i>
+                </button>
+
+                <button class="control-btn" id="nextBtn" title="Next">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+
+            <!-- Secondary Controls -->
+            <div class="secondary-controls">
+                <button class="control-btn" id="repeatBtn" title="Repeat" data-repeat="off">
+                    <i class="fas fa-redo"></i>
+                </button>
+
+                <button class="control-btn" id="shuffleBtn" title="Shuffle">
+                    <i class="fas fa-random"></i>
+                </button>
+
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="70" class="volume-slider">
+                </div>
+
+                <button class="control-btn" id="playlistToggle" title="Playlist">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Playlist Sidebar -->
+        <div class="playlist-sidebar" id="playlistSidebar">
+            <div class="playlist-header">
+                <h3>Playlist</h3>
+                <button class="close-btn" id="closePlaylist">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="playlist-container" id="playlistContainer"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
